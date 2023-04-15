@@ -6,16 +6,42 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ContentView: View {
+    
+    @ObservedObject var plantApp = PlantViewModel()
+//    @State var plant = PlantModel(name: "", sci_name: "")
+    //Would need if people could add their own plants
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        NavigationStack {
+                            
+            List {
+                ForEach($plantApp.plants) { $plant in
+                    NavigationLink {
+                        PlantDetail(plant: $plant)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(plant.name)
+                                .textCase(.uppercase)
+                            Text(plant.sci_name)
+                                .italic()
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
         }
-        .padding()
+        .onAppear {
+            plantApp.fetchData()
+        }
+        .refreshable {
+            plantApp.fetchData()
+        }
     }
 }
 
