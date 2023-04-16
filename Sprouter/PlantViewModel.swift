@@ -12,6 +12,8 @@ import FirebaseAuth
 
 class PlantViewModel : ObservableObject {
     @Published var plants = [PlantModel]()
+    @Published var plantPhotoData = [PlantPhotoModel]()
+    
     let db = Firestore.firestore()
     
     func authorize() {
@@ -37,7 +39,20 @@ class PlantViewModel : ObservableObject {
                         var plant: PlantModel
                         do {
                             plant = try document.data(as: PlantModel.self)
-                            plant.photos = self.fetchPhotoMetadata(plant_id: plant.id!)
+                            let subcollref = document.reference.collection("photo_metadata")
+                            subcollref.getDocuments { (querySnapshot, err) in
+                                if let err = err {
+                                    print("Error getting documents: \(err)")
+                                } else {
+                                    for metadata in querySnapshot!.documents {
+                                        do {
+                                            plant.photo_metadata.append(try metadata.data(as: PlantPhotoModel.self))
+                                        } catch {
+                                            print(error)
+                                        }
+                                    }
+                                }
+                            }
                             self.plants.append(plant)
                         } catch {
                             print(error)
@@ -45,25 +60,6 @@ class PlantViewModel : ObservableObject {
                     }
                 }
             }
-    }
-    
-    func fetchPhotoMetadata(plant_id: String) -> [PlantPhotoModel] {
-        var photo_data: [PlantPhotoModel] = []
-        db.collection("plant_photo_metadata").whereField("plant_id", isEqualTo: plant_id)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        do {
-                            photo_data.append(try document.data(as: PlantPhotoModel.self))
-                        } catch {
-                            print(error)
-                        }
-                    }
-                }
-            }
-        return photo_data
     }
     
 }

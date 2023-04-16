@@ -18,7 +18,6 @@ struct PlantDetail: View {
                 .textCase(.uppercase)
             Text(plant.sci_name)
                 .italic()
-            Text(plant.photos?[0].attribution ?? "")
         }
     }
 }
