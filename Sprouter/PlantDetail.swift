@@ -18,6 +18,9 @@ struct PlantDetail: View {
                 .textCase(.uppercase)
             Text(plant.sci_name)
                 .italic()
+//            ForEach(plant.photos) { metadata in
+//                Text(metadata.attribution)
+//            }
         }
     }
 }

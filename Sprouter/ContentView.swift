@@ -36,11 +36,8 @@ struct ContentView: View {
                 
             }
         }
-        .onAppear {
-            plantApp.fetchData()
-        }
-        .refreshable {
-            plantApp.fetchData()
+        .task {
+            await plantApp.fetchData()
         }
     }
 }

@@ -12,18 +12,13 @@ struct PlantModel : Codable, Identifiable {
     @DocumentID var id: String?
     var name: String
     var sci_name: String
-    var photo_metadata: [PlantPhotoModel] = [PlantPhotoModel]()
-    
-    enum CodingKeys: String, CodingKey {
-        case name = "name"
-        case sci_name = "sci_name"
-        case id = "id"
-    }
+    var photos: [PhotoMetadataModel]?
 }
 
-struct PlantPhotoModel : Codable, Identifiable {
-    @DocumentID var id: String?
+struct PhotoMetadataModel : Codable, Hashable {
+    // @DocumentID var id: String? = UUID().uuidString
     var storage_location: String
     var stage: String
     var attribution: String
 }
+

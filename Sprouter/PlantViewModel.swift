@@ -12,7 +12,6 @@ import FirebaseAuth
 
 class PlantViewModel : ObservableObject {
     @Published var plants = [PlantModel]()
-    @Published var plantPhotoData = [PlantPhotoModel]()
     
     let db = Firestore.firestore()
     
@@ -27,39 +26,24 @@ class PlantViewModel : ObservableObject {
             }
         }
     }
-    
-    func fetchData() {
+    @MainActor
+    func fetchData() async {
         self.plants.removeAll()
-        db.collection("plants").order(by: "name")
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        var plant: PlantModel
-                        do {
-                            plant = try document.data(as: PlantModel.self)
-                            let subcollref = document.reference.collection("photo_metadata")
-                            subcollref.getDocuments { (querySnapshot, err) in
-                                if let err = err {
-                                    print("Error getting documents: \(err)")
-                                } else {
-                                    for metadata in querySnapshot!.documents {
-                                        do {
-                                            plant.photo_metadata.append(try metadata.data(as: PlantPhotoModel.self))
-                                        } catch {
-                                            print(error)
-                                        }
-                                    }
-                                }
-                            }
-                            self.plants.append(plant)
-                        } catch {
-                            print(error)
-                        }
-                    }
+        do {
+            let snapshot = try await db.collection("plants").order(by: "name").getDocuments()
+            snapshot.documents.forEach { document in
+                var plant: PlantModel
+                do {
+                    plant = try document.data(as: PlantModel.self)
+                    self.plants.append(plant)
+                } catch {
+                    print(error)
                 }
             }
+        } catch {
+                print(error)
+        }
+        
     }
     
 }
