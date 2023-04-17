@@ -15,8 +15,8 @@ struct PlantModel : Codable, Identifiable {
     var photos: [PhotoMetadataModel]?
 }
 
-struct PhotoMetadataModel : Codable, Hashable {
-    // @DocumentID var id: String? = UUID().uuidString
+struct PhotoMetadataModel : Codable, Hashable, Identifiable {
+    let id = UUID()
     var storage_location: String
     var stage: String
     var attribution: String
