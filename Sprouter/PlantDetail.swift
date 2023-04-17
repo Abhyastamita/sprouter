@@ -19,7 +19,21 @@ struct PlantDetail: View {
             Text(plant.sci_name)
                 .italic()
             ForEach(plant.photos ?? []) { metadata in
-                Text(metadata.attribution)
+                VStack(alignment: .leading, spacing: 6) {
+                    AsyncImageView(storageLocation: metadata.storage_location)
+                        .overlay(
+                            Text(metadata.stage.capitalized)
+                                .padding(3.0)
+                                .background(Color.white)
+                                .padding(5.0)
+                                .opacity(0.7)
+                            , alignment: .bottom)
+                    Text(metadata.attribution)
+                        .padding(3.0)
+                        .background(Color.gray.opacity(0.2))
+                        .font(.caption)
+                    Spacer()
+                }
             }
         }
     }

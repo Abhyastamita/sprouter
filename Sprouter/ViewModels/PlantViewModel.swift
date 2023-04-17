@@ -9,6 +9,7 @@ import Foundation
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 class PlantViewModel : ObservableObject {
     @Published var plants = [PlantModel]()
@@ -26,6 +27,7 @@ class PlantViewModel : ObservableObject {
             }
         }
     }
+    
     @MainActor
     func fetchData() async {
         self.plants.removeAll()
@@ -45,5 +47,4 @@ class PlantViewModel : ObservableObject {
         }
         
     }
-    
 }
