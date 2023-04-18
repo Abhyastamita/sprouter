@@ -24,9 +24,13 @@ struct ContentView: View {
                     } label: {
                         HStack {
                             if garden.contains(plant) {
-                                Image(systemName: "sprout.fill")
+                                Image(systemName: "leaf.fill")
                                     .accessibilityLabel("This plant been planted")
                                     .foregroundColor(.green)
+                            } else {
+                                Image(systemName: "leaf")
+                                    .accessibilityLabel("This plant not been planted")
+                                    .foregroundColor(.brown)
                             }
                             VStack(alignment: .leading) {
                                 Text(plant.name)
