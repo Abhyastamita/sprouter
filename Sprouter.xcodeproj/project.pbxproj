@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721426E229EE253100EFBBCF /* GardenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721426E129EE253100EFBBCF /* GardenModel.swift */; };
 		7258D0C429EB3D7F00D52487 /* PlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7258D0C329EB3D7F00D52487 /* PlantViewModel.swift */; };
 		7258D0C629EB3DAA00D52487 /* PlantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7258D0C529EB3DAA00D52487 /* PlantDetail.swift */; };
 		7258D0C929EB4BA900D52487 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7258D0C829EB4BA900D52487 /* FirebaseAuth */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		721426E129EE253100EFBBCF /* GardenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenModel.swift; sourceTree = "<group>"; };
 		7258D0C329EB3D7F00D52487 /* PlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewModel.swift; sourceTree = "<group>"; };
 		7258D0C529EB3DAA00D52487 /* PlantDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetail.swift; sourceTree = "<group>"; };
 		728AE32329ECDE0E00AE5D18 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				72EDC3FB29EB168D00A46256 /* PlantModel.swift */,
+				721426E129EE253100EFBBCF /* GardenModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				721426E229EE253100EFBBCF /* GardenModel.swift in Sources */,
 				72AB9F2429E8A6740016AB44 /* ContentView.swift in Sources */,
 				72EDC3FC29EB168D00A46256 /* PlantModel.swift in Sources */,
 				7258D0C429EB3D7F00D52487 /* PlantViewModel.swift in Sources */,

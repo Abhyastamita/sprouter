@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseCore
 import FirebaseFirestore
-import FirebaseAuth
+//import FirebaseAuth
 import FirebaseStorage
 
 class PlantViewModel : ObservableObject {
@@ -16,17 +16,17 @@ class PlantViewModel : ObservableObject {
     
     let db = Firestore.firestore()
     
-    func authorize() {
-        let auth = Auth.auth()
-        auth.signInAnonymously { (result, error) in
-            if error != nil {
-                print(error!)
-                return
-            } else {
-                print("Successfully signed in anonymously.")
-            }
-        }
-    }
+//    func authorize() {
+//        let auth = Auth.auth()
+//        auth.signInAnonymously { (result, error) in
+//            if error != nil {
+//                print(error!)
+//                return
+//            } else {
+//                print("Successfully signed in anonymously.")
+//            }
+//        }
+//    }
     
     @MainActor
     func fetchData() async {

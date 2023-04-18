@@ -11,8 +11,7 @@ import FirebaseAuth
 struct ContentView: View {
     
     @ObservedObject var plantApp = PlantViewModel()
-//    @State var plant = PlantModel(name: "", sci_name: "")
-    //Would need if people could add their own plants
+    @StateObject var garden = GardenModel()
     
     var body: some View {
         
@@ -23,13 +22,19 @@ struct ContentView: View {
                     NavigationLink {
                         PlantDetail(plant: $plant)
                     } label: {
-                        VStack(alignment: .leading) {
-                            Text(plant.name)
-                                .textCase(.uppercase)
-                            Text(plant.sci_name)
-                                .italic()
+                        HStack {
+                            if garden.contains(plant) {
+                                Image(systemName: "sprout.fill")
+                                    .accessibilityLabel("This plant been planted")
+                                    .foregroundColor(.green)
+                            }
+                            VStack(alignment: .leading) {
+                                Text(plant.name)
+                                    .textCase(.uppercase)
+                                Text(plant.sci_name)
+                                    .italic()
+                            }
                         }
-                        
                     }
                     
                 }
@@ -39,6 +44,7 @@ struct ContentView: View {
         .task {
             await plantApp.fetchData()
         }
+        .environmentObject(garden)
     }
 }
 
