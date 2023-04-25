@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct PlantDetail: View {
+struct PlantDetailView: View {
     
     @Binding var plant : PlantModel
     @ObservedObject var plantApp = PlantViewModel()
     @EnvironmentObject var garden: GardenModel
+    @State var showPopover = false
     
     var body: some View {
         ScrollView {
@@ -21,13 +22,27 @@ struct PlantDetail: View {
                     .textCase(.uppercase)
                 Text(plant.sci_name)
                     .italic()
-                
-                Button(garden.contains(plant) ? "Remove" : "Add") {
+                Text("Spacing: \(plant.getLocalizedSpacingString())")
+                Text("Sprouts in \(plant.min_germ) to \(plant.max_germ) days")
+                if garden.contains(plant) {
+                    Divider()
+                    VStack {
+                        Text("Planted: \(garden.getPlantedDate(plant))")
+                        Text(garden.getExpectedGermination(plant))
+                    }
+                    .padding()
+                    .background(.gray)
+                }
+                Button(garden.contains(plant) ? "Remove from Planted List" : "Add to Planted List") {
                     if garden.contains(plant) {
                         garden.remove(plant)
                     } else {
-                        garden.add(plant)
+                        showPopover = true
+                        //garden.add(plant)
                     }
+                }
+                .popover(isPresented: $showPopover) {
+                    AddPlantFormPopoverView(plant: $plant, garden: _garden, showPopover: $showPopover)
                 }
                 .buttonStyle(.borderedProminent)
                 .padding()
@@ -52,10 +67,7 @@ struct PlantDetail: View {
             }
         }
     }
+    
+    
+    
 }
-
-//struct PlantDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlantDetail()
-//    }
-//}

@@ -13,6 +13,14 @@ struct PlantModel : Codable, Identifiable {
     var name: String
     var sci_name: String
     var photos: [PhotoMetadataModel]?
+    var min_germ: Int
+    var max_germ: Int
+    var spacing: Int
+    
+    func getLocalizedSpacingString() -> String {
+        let distance = Measurement<UnitLength>(value: Double(spacing), unit: .inches)
+        return distance.formatted()
+    }
 }
 
 struct PhotoMetadataModel : Codable, Hashable, Identifiable {

@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		721426E229EE253100EFBBCF /* GardenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721426E129EE253100EFBBCF /* GardenModel.swift */; };
 		7258D0C429EB3D7F00D52487 /* PlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7258D0C329EB3D7F00D52487 /* PlantViewModel.swift */; };
-		7258D0C629EB3DAA00D52487 /* PlantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7258D0C529EB3DAA00D52487 /* PlantDetail.swift */; };
+		7258D0C629EB3DAA00D52487 /* PlantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7258D0C529EB3DAA00D52487 /* PlantDetailView.swift */; };
 		7258D0C929EB4BA900D52487 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7258D0C829EB4BA900D52487 /* FirebaseAuth */; };
 		7258D0CB29EB4C0F00D52487 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7258D0CA29EB4C0F00D52487 /* FirebaseStorage */; };
 		728AE32429ECDE0E00AE5D18 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728AE32329ECDE0E00AE5D18 /* AsyncImageView.swift */; };
+		72A0D54E29F82F6A00A8BC02 /* AddPlantFormPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A0D54D29F82F6A00A8BC02 /* AddPlantFormPopoverView.swift */; };
 		72AB9F2229E8A6740016AB44 /* SprouterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AB9F2129E8A6740016AB44 /* SprouterApp.swift */; };
 		72AB9F2429E8A6740016AB44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AB9F2329E8A6740016AB44 /* ContentView.swift */; };
 		72AB9F2629E8A6990016AB44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72AB9F2529E8A6990016AB44 /* Assets.xcassets */; };
@@ -27,8 +28,9 @@
 /* Begin PBXFileReference section */
 		721426E129EE253100EFBBCF /* GardenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenModel.swift; sourceTree = "<group>"; };
 		7258D0C329EB3D7F00D52487 /* PlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewModel.swift; sourceTree = "<group>"; };
-		7258D0C529EB3DAA00D52487 /* PlantDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetail.swift; sourceTree = "<group>"; };
+		7258D0C529EB3DAA00D52487 /* PlantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailView.swift; sourceTree = "<group>"; };
 		728AE32329ECDE0E00AE5D18 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		72A0D54D29F82F6A00A8BC02 /* AddPlantFormPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantFormPopoverView.swift; sourceTree = "<group>"; };
 		72AB9F1E29E8A6740016AB44 /* Sprouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sprouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AB9F2129E8A6740016AB44 /* SprouterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprouterApp.swift; sourceTree = "<group>"; };
 		72AB9F2329E8A6740016AB44 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,8 +66,10 @@
 		728AE32029ECDDC200AE5D18 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7258D0C529EB3DAA00D52487 /* PlantDetailView.swift */,
 				72AB9F2329E8A6740016AB44 /* ContentView.swift */,
 				728AE32329ECDE0E00AE5D18 /* AsyncImageView.swift */,
+				72A0D54D29F82F6A00A8BC02 /* AddPlantFormPopoverView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -114,7 +118,6 @@
 				72AB9F2F29E8AA7A0016AB44 /* GoogleService-Info.plist */,
 				72AB9F2529E8A6990016AB44 /* Assets.xcassets */,
 				72AB9F2729E8A6990016AB44 /* Preview Content */,
-				7258D0C529EB3DAA00D52487 /* PlantDetail.swift */,
 			);
 			path = Sprouter;
 			sourceTree = "<group>";
@@ -208,11 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A0D54E29F82F6A00A8BC02 /* AddPlantFormPopoverView.swift in Sources */,
 				721426E229EE253100EFBBCF /* GardenModel.swift in Sources */,
 				72AB9F2429E8A6740016AB44 /* ContentView.swift in Sources */,
 				72EDC3FC29EB168D00A46256 /* PlantModel.swift in Sources */,
 				7258D0C429EB3D7F00D52487 /* PlantViewModel.swift in Sources */,
-				7258D0C629EB3DAA00D52487 /* PlantDetail.swift in Sources */,
+				7258D0C629EB3DAA00D52487 /* PlantDetailView.swift in Sources */,
 				728AE32429ECDE0E00AE5D18 /* AsyncImageView.swift in Sources */,
 				72AB9F2229E8A6740016AB44 /* SprouterApp.swift in Sources */,
 			);
