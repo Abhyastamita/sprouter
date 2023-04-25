@@ -50,7 +50,6 @@ struct ContentView: View {
                     Text("You have not added any plants to your planted list.")
                 }
             }
-            .listStyle(.grouped)
             .navigationTitle("Sprouter")
             .toolbar {
                 ToolbarItem(placement: ToolbarItemPlacement.status) {

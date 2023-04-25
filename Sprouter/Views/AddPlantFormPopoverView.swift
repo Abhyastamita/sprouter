@@ -20,24 +20,32 @@ struct AddPlantFormPopoverView: View {
     }
     
     var body: some View {
-        VStack {
-            DatePicker(
-                "Planted Date",
-                selection: $date,
-                displayedComponents: [.date]
-            )
-            HStack {
-                Button("Cancel") {
-                    showPopover = false
+        VStack(alignment: .center) {
+            Form {
+                DatePicker(
+                    "Planted Date",
+                    selection: $date,
+                    displayedComponents: [.date]
+                )
+                .padding(.horizontal)
+                HStack {
+                    Spacer()
+                    Button("Cancel") {
+                        showPopover = false
+                    }
+                    Button("Add") {
+                        garden.add(plant, datePlanted: date)
+                        showPopover = false
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .padding()
+                    Spacer()
                 }
-                Button("Add") {
-                    garden.add(plant, datePlanted: date)
-                    showPopover = false
-                }
-                .buttonStyle(.borderedProminent)
-                .padding()
+                .padding(.horizontal)
             }
         }
+        .padding(.horizontal)
         .frame(width: 350, height: 200)
+        .background(Color("AccentColor"))
     }
 }

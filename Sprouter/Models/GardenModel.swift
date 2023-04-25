@@ -59,7 +59,7 @@ class GardenModel: ObservableObject {
             let today = Date()
             guard let earliest = Calendar.current.date(byAdding: .day, value: plant.min_germ, to: date) else { return "" }
             guard let latest = Calendar.current.date(byAdding: .day, value: plant.max_germ, to: date) else { return "" }
-            return "The \(plant.name) should \(latest < today ? "have sprouted" : "sprout") between \(dateFormatter.string(from: earliest)) and \(dateFormatter.string(from: latest))."
+            return "Your plant should \(latest < today ? "have sprouted" : "sprout") between \(dateFormatter.string(from: earliest)) and \(dateFormatter.string(from: latest))."
         }
         
         return ""
