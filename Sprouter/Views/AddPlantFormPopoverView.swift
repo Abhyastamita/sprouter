@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddPlantFormPopoverView: View {
     @Binding var plant : PlantModel
-    @EnvironmentObject var garden : GardenModel
+    @EnvironmentObject var garden : GardenViewModel
     @Binding var showPopover : Bool
     @State private var date = Date()
     
@@ -20,8 +20,8 @@ struct AddPlantFormPopoverView: View {
     }
     
     var body: some View {
-        VStack(alignment: .center) {
-            Form {
+        Form {
+            VStack(alignment: .center) {
                 DatePicker(
                     "Planted Date",
                     selection: $date,
@@ -45,7 +45,9 @@ struct AddPlantFormPopoverView: View {
             }
         }
         .padding(.horizontal)
-        .frame(width: 350, height: 200)
+//        .frame(width: 350, height: 200)
         .background(Color("AccentColor"))
+        .presentationDragIndicator(.visible)
+        .presentationDetents([.height(200)])
     }
 }

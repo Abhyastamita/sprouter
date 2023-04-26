@@ -11,7 +11,7 @@ import FirebaseAuth
 struct ContentView: View {
     
     @ObservedObject var plantApp = PlantViewModel()
-    @StateObject var garden = GardenModel()
+    @StateObject var garden = GardenViewModel()
     @State private var myPlants = false
     
     var body: some View {
@@ -56,6 +56,7 @@ struct ContentView: View {
                     Toggle(isOn: $myPlants) {
                         Text(myPlants ? "Show all plants" : "Only show plants in my garden")
                     }
+                    .toggleStyle(SwitchToggleStyle())
                 }
             }
         }

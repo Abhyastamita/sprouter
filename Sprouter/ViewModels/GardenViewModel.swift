@@ -7,14 +7,22 @@
 
 import Foundation
 
-class GardenModel: ObservableObject {
-    private var plants: Set<GardenPlant> // IDs of plants the user has planted
+class GardenViewModel: ObservableObject {
+    private var plants: Set<GardenPlant>
     private let saveKey = "Garden"
     var count : Int
+    let encoder = JSONEncoder()
+    let decoder = JSONDecoder()
     
     init() {
-        //load saved data
         plants = []
+        if let data  = UserDefaults.standard.data(forKey: saveKey) {
+            do {
+                plants = try decoder.decode(Set<GardenPlant>.self, from: data)
+            } catch {
+                print("Unable to decode plants (\(error)")
+            }
+        }
         count = plants.count
     }
     
@@ -67,11 +75,13 @@ class GardenModel: ObservableObject {
     
     
     func save() {
-        
+        do {
+            let data = try encoder.encode(plants)
+            UserDefaults.standard.set(data, forKey: saveKey)
+        } catch {
+            print("Unable to save planting data")
+        }
     }
 }
 
-struct GardenPlant: Hashable, Identifiable {
-    let id: String
-    let datePlanted: Date
-}
+

@@ -11,7 +11,7 @@ struct PlantDetailView: View {
     
     @Binding var plant : PlantModel
     @ObservedObject var plantApp = PlantViewModel()
-    @EnvironmentObject var garden: GardenModel
+    @EnvironmentObject var garden: GardenViewModel
     @State var showPopover = false
     
     var body: some View {

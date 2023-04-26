@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		721426E229EE253100EFBBCF /* GardenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721426E129EE253100EFBBCF /* GardenModel.swift */; };
+		721426E229EE253100EFBBCF /* GardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721426E129EE253100EFBBCF /* GardenViewModel.swift */; };
 		7258D0C429EB3D7F00D52487 /* PlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7258D0C329EB3D7F00D52487 /* PlantViewModel.swift */; };
 		7258D0C629EB3DAA00D52487 /* PlantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7258D0C529EB3DAA00D52487 /* PlantDetailView.swift */; };
 		7258D0C929EB4BA900D52487 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7258D0C829EB4BA900D52487 /* FirebaseAuth */; };
 		7258D0CB29EB4C0F00D52487 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7258D0CA29EB4C0F00D52487 /* FirebaseStorage */; };
 		728AE32429ECDE0E00AE5D18 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728AE32329ECDE0E00AE5D18 /* AsyncImageView.swift */; };
+		729710B029F8B31D0010AED3 /* GardenPlantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729710AF29F8B31D0010AED3 /* GardenPlantModel.swift */; };
 		72A0D54E29F82F6A00A8BC02 /* AddPlantFormPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A0D54D29F82F6A00A8BC02 /* AddPlantFormPopoverView.swift */; };
 		72AB9F2229E8A6740016AB44 /* SprouterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AB9F2129E8A6740016AB44 /* SprouterApp.swift */; };
 		72AB9F2429E8A6740016AB44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AB9F2329E8A6740016AB44 /* ContentView.swift */; };
@@ -26,10 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		721426E129EE253100EFBBCF /* GardenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenModel.swift; sourceTree = "<group>"; };
+		721426E129EE253100EFBBCF /* GardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenViewModel.swift; sourceTree = "<group>"; };
 		7258D0C329EB3D7F00D52487 /* PlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewModel.swift; sourceTree = "<group>"; };
 		7258D0C529EB3DAA00D52487 /* PlantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailView.swift; sourceTree = "<group>"; };
 		728AE32329ECDE0E00AE5D18 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		729710AF29F8B31D0010AED3 /* GardenPlantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenPlantModel.swift; sourceTree = "<group>"; };
 		72A0D54D29F82F6A00A8BC02 /* AddPlantFormPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantFormPopoverView.swift; sourceTree = "<group>"; };
 		72AB9F1E29E8A6740016AB44 /* Sprouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sprouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AB9F2129E8A6740016AB44 /* SprouterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprouterApp.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				72EDC3FB29EB168D00A46256 /* PlantModel.swift */,
-				721426E129EE253100EFBBCF /* GardenModel.swift */,
+				729710AF29F8B31D0010AED3 /* GardenPlantModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -86,6 +88,7 @@
 		728AE32229ECDDE800AE5D18 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				721426E129EE253100EFBBCF /* GardenViewModel.swift */,
 				7258D0C329EB3D7F00D52487 /* PlantViewModel.swift */,
 			);
 			path = ViewModels;
@@ -212,12 +215,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				72A0D54E29F82F6A00A8BC02 /* AddPlantFormPopoverView.swift in Sources */,
-				721426E229EE253100EFBBCF /* GardenModel.swift in Sources */,
+				721426E229EE253100EFBBCF /* GardenViewModel.swift in Sources */,
 				72AB9F2429E8A6740016AB44 /* ContentView.swift in Sources */,
 				72EDC3FC29EB168D00A46256 /* PlantModel.swift in Sources */,
 				7258D0C429EB3D7F00D52487 /* PlantViewModel.swift in Sources */,
 				7258D0C629EB3DAA00D52487 /* PlantDetailView.swift in Sources */,
 				728AE32429ECDE0E00AE5D18 /* AsyncImageView.swift in Sources */,
+				729710B029F8B31D0010AED3 /* GardenPlantModel.swift in Sources */,
 				72AB9F2229E8A6740016AB44 /* SprouterApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
